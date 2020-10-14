@@ -17,4 +17,18 @@ class ShoppingCart
     store_details[:capacity] = capacity.delete("items").to_i
     store_details
   end
+
+  def total_number_of_products
+    @products.sum do |product|
+     product.quantity
+   end
+  end
+
+  def is_full?
+    if capacity.delete("items").to_i < total_number_of_products
+      true
+    else
+      false
+    end
+  end
 end
