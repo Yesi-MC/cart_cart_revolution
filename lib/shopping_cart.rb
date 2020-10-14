@@ -10,4 +10,11 @@ class ShoppingCart
   def add_product(product)
     @products << product
   end
+
+  def details
+    store_details = {}
+    store_details[:name] = name
+    store_details[:capacity] = capacity.delete("items").to_i
+    store_details
+  end
 end
